@@ -42,3 +42,25 @@ jobs:
         with:
           name: report-tests
           path: '**/formated-report/'
+
+      - name: Enviar notificação Slack - Sucesso
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148767.png?size=48
+          SLACK_MESSAGE: 'Sucesso na execução de testes Agendados :white_check_mark:'
+          SLACK_TITLE: 'Sucesso na execução de testes Agendados :white_check_mark:'
+          SLACK_USERNAME: SUCESSO
+
+      - name: Enviar notificação Slack - Falha
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://cdn.icon-icons.com/icons2/1378/PNG/512/dialogerror_92823.png?size=48
+          SLACK_MESSAGE: 'Falha na execução de testes Agendados :fire:'
+          SLACK_TITLE: 'Falha na execução de testes Agendados :fire:'
+          SLACK_USERNAME: FALHA
