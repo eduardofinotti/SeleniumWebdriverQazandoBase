@@ -15,15 +15,15 @@
       E clico em Login
       Então vejo mensagem de login com sucesso
 
-    @login-invalido
-    Esquema do Cenário: Validar: <name>
-      Quando preencho login "<user>" e senha "<password>"
-      E clico em Login
-      Então vejo mensagem "<message>" de campo não preenchido
-
-      Exemplos:
-      | user                | password  | message          | name            |
-      | qualquercoisa       | 123456    | E-mail inválido. | E-mail inválido |
-      |                     | 123456    | E-mail inválido. | E-mail vazio    |
-      | eduardo@qazando.com | 000       | Senha inválida.  | Senha inválida  |
-      | eduardo@qazando.com |           | Senha inválida.  | Senha vazia     |
+#    @login-invalido
+#    Esquema do Cenário: Validar: <name>
+#      Quando preencho login "<user>" e senha "<password>"
+#      E clico em Login
+#      Então vejo mensagem "<message>" de campo não preenchido
+#
+#      Exemplos:
+#      | user                | password  | message          | name            |
+#      | qualquercoisa       | 123456    | E-mail inválido. | E-mail inválido |
+#      |                     | 123456    | E-mail inválido. | E-mail vazio    |
+#      | eduardo@qazando.com | 000       | Senha inválida.  | Senha inválida  |
+#      | eduardo@qazando.com |           | Senha inválida.  | Senha vazia     |

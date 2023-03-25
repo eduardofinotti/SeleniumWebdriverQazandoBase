@@ -1,17 +1,24 @@
 package steps;
 
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
-import cucumber.api.java.pt.Quando;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Scenario;
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Então;
+import io.cucumber.java.pt.Quando;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import pages.LoginPage;
 import runner.RunCucumber;
-import support.ScreenshotUtils;
 
 public class LoginSteps extends RunCucumber {
 
     LoginPage loginPage = new LoginPage();
+
+    @AfterStep
+    public void attachScreenshot(Scenario scenario) {
+        byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+        scenario.attach(screenshot, "image/png", "Adiciona please");
+    }
 
     @Dado("^que estou na tela de login$")
     public void que_estou_na_tela_de_login() {
@@ -55,9 +62,10 @@ public class LoginSteps extends RunCucumber {
         loginPage.verificaLoginSucesso();
     }
 
-    @After
-    public static void afterScenario(Scenario scenario) {
-        ScreenshotUtils.addScreenshotOnScenario(scenario);
-    }
+//    @After
+//    public static void afterScenario(Scenario scenario) {
+//        System.out.println(("Finottinho"));
+//        ScreenshotUtils.addScreenshotOnScenario(scenario);
+//    }
 
 }
