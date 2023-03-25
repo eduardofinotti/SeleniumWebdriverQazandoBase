@@ -1,10 +1,10 @@
 package steps;
 
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
-import cucumber.api.java.pt.Quando;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Então;
+import io.cucumber.java.pt.Quando;
 import pages.CadastroUsuarioPage;
 import pages.LoginPage;
 import runner.RunCucumber;
