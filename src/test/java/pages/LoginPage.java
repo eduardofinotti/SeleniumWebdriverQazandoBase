@@ -10,7 +10,7 @@ public class LoginPage extends RunCucumber {
     // elementos
     private String URL = "http://automationpratice.com.br/";
     private By botaoAcessarLogin = By.cssSelector(".right_list_fix > li > a > .fa-user");
-    private By campoEmail = By.id("user");
+    private By campoEmail = By.id("userX");
     private By campoSenha = By.id("password");
     private By botaoFazerLogin = By.id("btnLogin");
     private By botaoAcessarCadastro = By.cssSelector(".right_list_fix > li > a > .fa-lock");
